@@ -2,6 +2,7 @@ import React from 'react'
 
 function ProjectWindow({projectName, projectDescription, workImg}) {
   return (
+      //Still under production 
       <div className="p-4 bg-gray-300 rounded-2xl grid grid-cols-2 gap-4 w-[50vh] ">
         <div className="flex items-center">
           <img src={workImg} className="rounded-2xl my-auto" />

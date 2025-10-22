@@ -2,9 +2,7 @@
 
 ### Relevant Details
 
-7.>> FACE IMAGE
+7.>> ProjectWindow creation
 
 8.>> Providing links to each works
-
-9.>> Deploying
 

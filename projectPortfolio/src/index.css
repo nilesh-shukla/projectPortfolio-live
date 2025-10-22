@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oregano:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kode+Mono:wght@400..700&family=Oregano:ital@0;1&display=swap');
 @import "tailwindcss";
 
 
@@ -9,20 +9,15 @@
     font-variation-settings: "wdth" 100;
 }
 
-.font-oregano {
-  font-family: "Oregano", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.font-oregano-italic {
-  font-family: "Oregano", cursive;
-  font-weight: 400;
-  font-style: italic;
-}
-
 .font-inter{
   font-family: "Inter", sans-serif;
+}
+
+.font-kode {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .font-boldness {
