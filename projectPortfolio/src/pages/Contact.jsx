@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import ContactPopUp from '../components/ContactPopUp'
+import { FaPhone } from 'react-icons/fa6'
 
 import contactImg from '../assets/contactImg.webp'
 
@@ -151,7 +152,9 @@ function Contact() {
             </div>
           </div>
           <Link to="/bookacall" onClick={() => setIsOpen(false)}>
-            <Button buttonName={"Book a Call"} className={"bg-[#F7F7F7] w-full text-md tracking-tight py-3 rounded-2xl text-black border-gray-300 border-1 hover:bg-gray-200 hover:cursor-pointer duration-300"}/>
+            <Button className={"bg-[#F7F7F7] w-full text-md tracking-tight py-3 rounded-2xl text-black border-gray-300 border-1 hover:bg-gray-200 hover:cursor-pointer duration-300"}>
+              <FaPhone size={18} className="mx-auto" />
+            </Button>
           </Link>
         </div>
 

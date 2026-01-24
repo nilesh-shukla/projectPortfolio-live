@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
 import Button from './Button';
+import { FaRocket } from 'react-icons/fa6'
 import myImage from "../assets/myImage2.png"
 
 function Footer() {
@@ -17,10 +18,12 @@ function Footer() {
         <div className="relative grid xl:grid-cols-2 grid-cols-1 gap-20">
           <img src={myImage} alt="myImage" className="opacity-80 aspect-auto bg-transparent justify-center items-center object-center rounded-3xl xl:mb-0 mb-10" />
           <div className="relative m-auto flex flex-col xl:w-full">
-            <p className="xl:text-[4em] text-3xl tracking-tight leading-tight text-white xl:mb-5 mb-8"><span className="
-            text-gray-500">Book a call,</span> and I’ll take care of the rest</p>
+            <p className="xl:text-[4em] text-3xl tracking-tight leading-tight text-white xl:mb-5 mb-8"><span className="text-gray-500">Start a project,</span> and I’ll take care of the rest</p>
             <Link to="/bookacall" onClick={() => setIsOpen(false)}>
-              <Button buttonName="Book a Call" className="hover:bg-[#d0d1d3] duration-300 cursor-pointer tracking-tight font-isans shadow-box rounded-2xl bg-white text-black px-5 py-3 w-30" />
+              <Button className="hover:bg-[#d0d1d3] duration-300 cursor-pointer tracking-tight font-isans shadow-box rounded-2xl bg-white text-black px-5 py-3 min-w-max flex items-center gap-2 whitespace-nowrap">
+                <FaRocket size={18} />
+                <span>Start Project</span>
+              </Button>
             </Link>
             <div className="grid xl:grid-cols-3 grid-cols-2 gap-6 mt-[10vh] text-white">
               <div className="flex flex-col gap-2">

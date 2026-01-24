@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
-import { FaXTwitter, FaEnvelope, FaLinkedinIn } from 'react-icons/fa6'
+import { FaXTwitter, FaEnvelope, FaLinkedinIn, FaRocket } from 'react-icons/fa6'
 import { motion, AnimatePresence } from "framer-motion";
 
 function Navigation() {
@@ -40,9 +40,12 @@ function Navigation() {
             <li><Link className='inline-block hover:text-violet-600 transition-transform duration-200 ease-in-out hover:scale-150' to="/Contact">Contact</Link></li>
           </ul>
         </nav>
-        <Link className="hidden xl:block" to="/bookacall">
-              <Button buttonName="Book a Call" className="booking tracking-tight bg-black rounded-2xl text-white font-isans px-5 py-3 shadow-box cursor-pointer hover:bg-violet-600 duration-300" />
-        </Link>
+          <Link className="hidden xl:block" to="/bookacall">
+            <Button className="booking flex items-center gap-2 tracking-tight bg-black rounded-2xl text-white font-isans px-5 py-3 shadow-box cursor-pointer hover:bg-violet-600 duration-300">
+              <FaRocket size={16} />
+              <span>Start Project</span>
+            </Button>
+          </Link>
 
         {/* MENU */}
         <div className="xl:hidden">
@@ -96,9 +99,10 @@ function Navigation() {
               </li>
               <li className="w-full">
                 <Link to="/bookacall" onClick={() => setIsOpen(false)}>
-                  <Button
-                    buttonName="Book a Call" 
-                    className={"w-full tracking-tight bg-black rounded-2xl text-white font-isans px-5 py-3 shadow-box cursor-pointer hover:bg-violet-600 duration-300"} />
+                  <Button className={"w-full flex items-center justify-center gap-2 tracking-tight bg-black rounded-2xl text-white font-isans px-5 py-3 shadow-box cursor-pointer hover:bg-violet-600 duration-300"}>
+                    <FaRocket size={16} />
+                    <span>Start Project</span>
+                  </Button>
                 </Link>
               </li>
             </motion.ul>
