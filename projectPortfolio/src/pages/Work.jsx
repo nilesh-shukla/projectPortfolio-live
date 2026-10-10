@@ -24,7 +24,7 @@ function Work() {
 
           <div className='grid auto-rows-auto grid-cols-1 xl:grid-cols-2 gap-2 py-10'>
 
-            <Cards imgName={imgProject1} projectName="BugsSmith" textColor={"text-white"} websiteLink={"https://bugssmith.onrender.com"}/>
+            <Cards imgName={imgProject1} projectName="BugsSmith" textColor={"text-white"} websiteLink={"https://bugs-smith.vercel.app/"}/>
                 
             <Cards imgName={imgProject4} projectName="CarbonWise" textColor={"text-white"}/>            
                                   

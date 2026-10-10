@@ -60,7 +60,7 @@ function Home() {
                 </div> 
                 <div className='grid grid-cols-1 xl:grid-cols-2 gap-4 py-10'>
 
-                    <Cards imgName={imgProject1} workImage={bugsWork} projectName="BugsSmith" textColor={"text-white"} describe={"A platform that uses intelligence to verify identities and detects suspicious activity to prevent fake profiles and ensure authentic online interactions"} websiteLink={"https://bugssmith.onrender.com"}/>
+                    <Cards imgName={imgProject1} workImage={bugsWork} projectName="BugsSmith" textColor={"text-white"} describe={"A platform that uses intelligence to verify identities and detects suspicious activity to prevent fake profiles and ensure authentic online interactions"} websiteLink={"https://bugs-smith.vercel.app/"}/>
                     
                     <Cards imgName={imgProject4}  projectName="CarbonWise" textColor={"text-black"} describe={"An AI-powered platform providing personalized insights to help households monitor, reduce, and control their carbon footprint effectively"}/> 
                                         
