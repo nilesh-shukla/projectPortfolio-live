@@ -7,7 +7,7 @@ import StepBullet from "../components/StepBullet";
 import FAQ from "../components/FAQ";
 
 import imgProject1 from "../assets/AI.jpg";
-import imgProject2 from "../assets/india_tour.jpg";
+import imgProject2 from "../assets/cardioVision-image.png";
 import imgProject3 from "../assets/leave_form.jpg";
 import imgProject4 from "../assets/CarbonWisePoster.jpg"
 import bugsWork from "../assets/bugsWork.png"
@@ -62,11 +62,11 @@ function Home() {
 
                     <Cards imgName={imgProject1} workImage={bugsWork} projectName="BugsSmith" textColor={"text-white"} describe={"A platform that uses intelligence to verify identities and detects suspicious activity to prevent fake profiles and ensure authentic online interactions"} websiteLink={"https://bugs-smith.vercel.app/"}/>
                     
-                    <Cards imgName={imgProject4}  projectName="CarbonWise" textColor={"text-black"} describe={"An AI-powered platform providing personalized insights to help households monitor, reduce, and control their carbon footprint effectively"}/> 
+                    <Cards imgName={imgProject4}  projectName="CarbonWise" textColor={"text-black"} describe={"An AI-powered platform providing personalized insights to help households monitor, reduce, and control their carbon footprint effectively"} websiteLink={"https://github.com/nilesh-shukla/CARBONWISE"}/> 
                                         
-                    <Cards imgName={imgProject2} className=" text-black" projectName="Aasan Yatra" textColor={"text-white"} describe={"A platform that guides travelers with curated destinations, tips, and resources to plan memorable and hassle-free tourism experiences"}/>
+                    <Cards imgName={imgProject2} className=" text-black" projectName="CardioVision" textColor={"text-white"} describe={"A platform that guides travelers with curated destinations, tips, and resources to plan memorable and hassle-free tourism experiences"} websiteLink={"https://cardio-vision-details.vercel.app//"}/>
                         
-                    <Cards imgName={imgProject3}  projectName="LeavePoint" describe={"A website enabling students to submit, track, and manage leave applications seamlessly with an easy-to-use interface"}/>
+                    <Cards imgName={imgProject3}  projectName="Nirvaak" describe={"A website enabling students to submit, track, and manage leave applications seamlessly with an easy-to-use interface"} websiteLink={"https://nirvak.onrender.com/"}/>
 
                 </div>
         </motion.div>
