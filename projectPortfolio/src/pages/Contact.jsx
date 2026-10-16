@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import Button from '../components/Button'
 import ContactPopUp from '../components/ContactPopUp'
 import ContactCallModal from '../components/ContactCallModal'
@@ -19,7 +20,10 @@ function Contact() {
   const [errors, setErrors] = useState({});
   const [showPopUp, setShowPopUp] = useState(false);
   const [showCallModal, setShowCallModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const callButtonRef = useRef(null);
+  const honeypotRef = useRef(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -40,7 +44,14 @@ function Contact() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (honeypotRef.current?.value) {
+      setSubmitError('Something went wrong while sending your message. Please try again.');
+      return;
+    }
+
     const newErrors = {};
     if(!inputData.name.trim()){
       newErrors.name = 'Required Name';
@@ -53,16 +64,45 @@ function Contact() {
     }
 
     setErrors(newErrors);
+    setSubmitError('');
 
-    if(Object.keys(newErrors).length === 0){
-      
+    if(Object.keys(newErrors).length > 0 || isSubmitting) return;
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setSubmitError('The contact form is not configured yet. Please try again later.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: inputData.name.trim(),
+          email: inputData.email.trim(),
+          message: inputData.message.trim(),
+          from_name: inputData.name.trim(),
+          reply_to: inputData.email.trim()
+        },
+        { publicKey }
+      );
+
       setShowPopUp(true);
-
       setInputData({
         name: '',
         email: '',
         message: ''
-      })
+      });
+    } catch {
+      setSubmitError('Something went wrong while sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -95,7 +135,16 @@ function Contact() {
       <h1 className='mb-10 xl:text-[2.6em] text-4xl tracking-tighter leading-10' style={{fontWeight: 500}}><span className='text-gray-500'>Ready to create something amazing?</span> Let's talk!</h1>
 
       <div className='flex lg:flex-row flex-col gap-3 text-white'>
-        <div className='bg-black p-5 flex flex-col rounded-2xl tracking-tighter xl:w-[75%] w-full shadow-box z-10'>
+        <form onSubmit={handleSubmit} className='bg-black p-5 flex flex-col rounded-2xl tracking-tighter xl:w-[75%] w-full shadow-box z-10'>
+          <input
+            ref={honeypotRef}
+            type="text"
+            name="website"
+            tabIndex="-1"
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
 
           <div className='mb-3'> 
             <label htmlFor="name" className='text-white'>Name</label>
@@ -156,8 +205,19 @@ function Contact() {
               </p>
               )}
           </div>
-          <button onClick={handleSubmit} className={"bg-white text-md mt-4 tracking-tight py-3 hover:bg-gray-300 hover:cursor-pointer duration-300 rounded-2xl text-black"} >Submit</button>
-        </div>
+          {submitError && (
+            <p role="alert" className="text-red-400 text-sm mt-3" aria-live="polite">
+              {submitError}
+            </p>
+          )}
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className={"bg-white text-md mt-4 tracking-tight py-3 hover:bg-gray-300 hover:cursor-pointer duration-300 rounded-2xl text-black disabled:cursor-wait disabled:opacity-70"}
+          >
+            {isSubmitting ? 'Sending...' : 'Submit'}
+          </button>
+        </form>
         <ContactPopUp isOpen={showPopUp} onClose={closeSuccessPopUp} />
         <ContactCallModal isOpen={showCallModal} onClose={closeCallModal} />
 
