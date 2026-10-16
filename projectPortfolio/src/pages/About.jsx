@@ -7,12 +7,15 @@ import FAQ from "../components/FAQ";
 import { CONTACT_MAILTO } from "../constants/contact";
 
 import aboutImg from "../assets/AboutImg.jpg"
-import Collab from "../assets/jupyter.png"
+import Collab from "../assets/reactLogo.webp"
 import JS from "../assets/JS.webp"
-import Discord from "../assets/discord.jpeg"
+import Discord from "../assets/express.png"
 import NodeJS from "../assets/nodeJs.webp"
-import LIn from "../assets/linked.avif"
+import LIn from "../assets/typescript.png"
 import GitHub from "../assets/github.png"
+import Java from "../assets/java.jpg"
+import Postgre from "../assets/postgresql.png"
+
 import pencilImg from "../assets/pencilImg.png"
 
 function About() {
@@ -55,11 +58,11 @@ function About() {
         <div className="xl:p-45 md:px-7 px-4 py-45">
           <h1 className="text-black tracking-tight lg:text-4xl text-3xl mb-10">Coding Experiences</h1>
           <div className="flex flex-col gap-2">
-            <Experience className="bg-[#7430F7] shadow-box z-50" textColor="text-white" expColor={"text-white"} exp="React Development" language="ReactJS" time="2024-Present" />
-            <Experience className="bg-[#f4f4f4] z-10" textColor="text-[#979797]" exp="Machine Learning" language="Python" time="2023-24" />
-            <Experience className="bg-[#f4f4f4]" textColor="text-[#979797]" exp="JavaScript Development" language="JavaScript" time="2021-23" />
-            <Experience className="bg-[#f4f4f4]" textColor="text-[#979797]" exp="FrontEnd Developement" language="HTML and CSS" time="2020-21" />
-            <Experience className="bg-[#f4f4f4]" textColor="text-[#979797]" exp="Java Development" language="JAVA" time="2019-20" />
+            <Experience className="bg-[#7430F7] shadow-box z-50" textColor="text-white" expColor={"text-white"} exp="Backend Development" language="Golang, NodeJS" time="2024-Present" />
+            <Experience className="bg-[#f4f4f4] z-10" textColor="text-[#979797]" exp="Machine Learning" language="Scikit-Learn, Matplotlib, Algorithms" time="2023-24" />
+            <Experience className="bg-[#f4f4f4]" textColor="text-[#979797]" exp="Database Management" language="MySQL, PostgreSQL" time="2021-23" />
+            <Experience className="bg-[#f4f4f4]" textColor="text-[#979797]" exp="FrontEnd Developement" language="React, JavaScript, TypeScript" time="2020-21" />
+            <Experience className="bg-[#f4f4f4]" textColor="text-[#979797]" exp="Data Strucuture Analysis" language="JAVA, C++" time="2019-20" />
           </div>
         </div>
         
@@ -67,12 +70,14 @@ function About() {
         <div className="xl:px-45 md:px-7 px-4">
           <h1 className="text-black tracking-tight text-4xl mb-10">My stacks</h1>
           <div className="grid lg:grid-rows-3 lg:grid-cols-2 grid-rows-6 grid-cols-1 gap-2">
-            <Stack className="bg-[#7430F7] shadow-box z-50" textColor="text-white" titleColor="text-white" image={Collab} imgColor={"bg-gray-200 p-1"} title="Jupyter" description="My space to explore and analyse bold ideas" />
-            <Stack className="bg-[#f7f7f7]" textColor="text-[#979797]" image={LIn} title="LinkedIn" description="The easiest way to hire me and collaborate on projects" />
+            <Stack className="bg-[#7430F7] shadow-box z-50" textColor="text-white" titleColor="text-white" image={Collab} imgColor={"bg-gray-200 p-1"} title="React" description="Building dynamic, reusable, and interactive user interfaces" />
+            <Stack className="bg-[#f7f7f7]" textColor="text-[#979797]" image={LIn} title="Typescript" description="Writing scalable, type-safe, and maintainable applications" />
             <Stack className="bg-[#f7f7f7] z-10" textColor="text-[#979797]" image={JS} title="Javascript" description="Powering the modern web with logic and interactivity" />
-            <Stack className="bg-[#f7f7f7]" textColor="text-[#979797]" image={Discord} title="Discord" description="Where I share insights, tips, and Framer resources" />
+            <Stack className="bg-[#f7f7f7]" textColor="text-[#979797]" image={Discord} title="ExpressJS" description="Simplifying backend development with flexible API architecture" />
             <Stack className="bg-[#f7f7f7] z-10" textColor="text-[#979797]" image={NodeJS} imgColor={"bg-white p-1"} title="NodeJS" description="A smooth and secure solution for development" />
             <Stack className="bg-[#f7f7f7]" textColor="text-[#979797]" image={GitHub} title="GitHub" description="The place where I build and ship code together" />
+            <Stack className="bg-[#f7f7f7]" textColor="text-[#979797]" image={Java} title="Java" description="A powerful, object-oriented programming language" />
+            <Stack className="bg-[#f7f7f7]" textColor="text-[#979797]" image={Postgre} title="PostgreSQL" description="Managing structured data with reliability and efficiency" />
           </div>
         </div>
 
