@@ -4,6 +4,7 @@ import Experience from "../components/Experience";
 import Stack from "../components/Stack";
 import Button from "../components/Button";
 import FAQ from "../components/FAQ";
+import { CONTACT_MAILTO } from "../constants/contact";
 
 import aboutImg from "../assets/AboutImg.jpg"
 import Collab from "../assets/jupyter.png"
@@ -81,7 +82,7 @@ function About() {
                     <h1 className="xl:text-xl text-lg text-gray-500 mb-2 mr-2">FAQs</h1><hr className="w-full text-[#e4e4e4]" />
                     </div>
                     <p className="xl:text-4xl text-3xl tracking-tighter xl:leading-tight leading-8 mb-6"><span className="text-gray-500">Answers to common questions to help you understand</span> the process and how we can work together</p>
-                    <a href="https://mail.google.com" target='_blank'>
+                    <a href={CONTACT_MAILTO}>
                     <Button buttonName="Email Me" className="emailMe hover:bg-violet-600 duration-300 cursor-pointer tracking-tight font-inter shadow-box rounded-2xl bg-black text-white px-5 py-3 w-30" />
                     </a>
                 </div>

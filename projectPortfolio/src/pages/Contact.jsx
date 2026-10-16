@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import ContactPopUp from '../components/ContactPopUp'
+import ContactCallModal from '../components/ContactCallModal'
 import { FaPhone } from 'react-icons/fa6'
+import { canPlaceCalls, CONTACT_PHONE } from '../constants/contact'
 
 import contactImg from '../assets/contactImg.webp'
 
@@ -17,6 +18,8 @@ function Contact() {
 
   const [errors, setErrors] = useState({});
   const [showPopUp, setShowPopUp] = useState(false);
+  const [showCallModal, setShowCallModal] = useState(false);
+  const callButtonRef = useRef(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -66,6 +69,20 @@ function Contact() {
   const closeSuccessPopUp = () => {
     setShowPopUp(false);
   }
+
+  const closeCallModal = () => {
+    setShowCallModal(false);
+    callButtonRef.current?.focus();
+  };
+
+  const handleCallClick = () => {
+    if (canPlaceCalls()) {
+      window.location.href = `tel:${CONTACT_PHONE}`;
+      return;
+    }
+
+    setShowCallModal(true);
+  };
 
   return (
     <motion.div
@@ -142,6 +159,7 @@ function Contact() {
           <button onClick={handleSubmit} className={"bg-white text-md mt-4 tracking-tight py-3 hover:bg-gray-300 hover:cursor-pointer duration-300 rounded-2xl text-black"} >Submit</button>
         </div>
         <ContactPopUp isOpen={showPopUp} onClose={closeSuccessPopUp} />
+        <ContactCallModal isOpen={showCallModal} onClose={closeCallModal} />
 
         <div className='rounded-2xl flex flex-col gap-2 justify-between bg-[#F7F7F7] xl:w-[35%] w-full p-5'>
           <div>
@@ -151,11 +169,13 @@ function Contact() {
               <h1 className='text-gray-400 text-center'>approximately 15 minutes</h1>
             </div>
           </div>
-          <Link to="/bookacall" onClick={() => setIsOpen(false)}>
-            <Button className={"bg-[#F7F7F7] w-full text-md tracking-tight py-3 rounded-2xl text-black border-gray-300 border-1 hover:bg-gray-200 hover:cursor-pointer duration-300"}>
-              <FaPhone size={18} className="mx-auto" />
-            </Button>
-          </Link>
+          <Button
+            ref={callButtonRef}
+            onClick={handleCallClick}
+            className={"bg-[#F7F7F7] w-full text-md tracking-tight py-3 rounded-2xl text-black border-gray-300 border-1 hover:bg-gray-200 hover:cursor-pointer duration-300"}
+          >
+            <FaPhone size={18} className="mx-auto" />
+          </Button>
         </div>
 
       </div>

@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from 'react';
 
 import MySphere from './MySphere';
 import Button from './Button';
+import { CONTACT_MAILTO } from '../constants/contact';
 
 function Header() {
 
@@ -73,7 +74,7 @@ function Header() {
             <div className='flex flex-col gap-6 xl:pl-2 pb-8 xl:basis-1/3 flex-shrink-0 xl:-mt-6'>
 
               <p className='text-gray-800 tracking-tight leading-5'>Driven by curiosity in ML and front-end craft, I create interfaces that feel natural and purposeful. With a focus on collaboration, I help shape data-centric ideas into interactive, human-friendly solutions</p>
-                <a href="https://mail.google.com" target='_blank'>
+                <a href={CONTACT_MAILTO}>
                 <Button buttonName="Email Me" className="hover:bg-violet-600 duration-300 cursor-pointer tracking-tight font-inter shadow-box rounded-2xl bg-black text-white px-5 py-3" />
               </a>
             </div>

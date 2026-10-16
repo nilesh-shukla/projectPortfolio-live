@@ -5,10 +5,11 @@ import Services from "../components/Services"
 import Achievement from "../components/Achievement";
 import StepBullet from "../components/StepBullet";
 import FAQ from "../components/FAQ";
+import { CONTACT_MAILTO } from "../constants/contact";
 
 import imgProject1 from "../assets/AI.jpg";
 import imgProject2 from "../assets/cardioVision-image.png";
-import imgProject3 from "../assets/leave_form.jpg";
+import imgProject3 from "../assets/Nirvaak.jpg";
 import imgProject4 from "../assets/CarbonWisePoster.jpg"
 import bugsWork from "../assets/bugsWork.png"
 import InImage from "../assets/linkedIn.png";
@@ -66,7 +67,7 @@ function Home() {
                                         
                     <Cards imgName={imgProject2} className=" text-black" projectName="CardioVision" textColor={"text-white"} describe={"A platform that guides travelers with curated destinations, tips, and resources to plan memorable and hassle-free tourism experiences"} websiteLink={"https://cardio-vision-details.vercel.app//"}/>
                         
-                    <Cards imgName={imgProject3}  projectName="Nirvaak" describe={"A website enabling students to submit, track, and manage leave applications seamlessly with an easy-to-use interface"} websiteLink={"https://nirvak.onrender.com/"}/>
+                    <Cards imgName={imgProject3}  projectName="Nirvaak" describe={"A website enabling educational institutes to access various student coding platforms to track and manage their coding activities and progress."} websiteLink={"https://nirvak.onrender.com/"}/>
 
                 </div>
         </motion.div>
@@ -201,7 +202,7 @@ function Home() {
                     <h1 className="xl:text-xl text-lg text-gray-500 mb-2 mr-2">FAQs</h1><hr className="w-full text-[#e4e4e4]" />
                     </div>
                     <p className="xl:text-4xl text-3xl tracking-tighter xl:leading-tight leading-8 mb-6"><span className="text-gray-500">Answers to common questions to help you understand</span> the process and how we can work together</p>
-                    <a href="https://mail.google.com" target='_blank'>
+                    <a href={CONTACT_MAILTO}>
                     <Button buttonName="Email Me" className="emailMe hover:bg-violet-600 duration-300 cursor-pointer tracking-tight font-inter shadow-box rounded-2xl bg-black text-white px-5 py-3 w-30" />
                     </a>
                 </div>

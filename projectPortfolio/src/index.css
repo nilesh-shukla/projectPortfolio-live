@@ -33,6 +33,31 @@
     display: none;
 }
 
+.contact-modal-backdrop {
+  animation: contact-modal-fade-in 160ms ease-out;
+}
+
+.contact-modal {
+  animation: contact-modal-scale-in 160ms ease-out;
+}
+
+@keyframes contact-modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes contact-modal-scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-modal-backdrop,
+  .contact-modal {
+    animation: none;
+  }
+}
+
 /* ScrollBar Adjustment */
 ::-webkit-scrollbar {
   width: 4px;
